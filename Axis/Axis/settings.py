@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Axis.urls'
@@ -118,9 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# Define STATIC_ROOT to collect static files for production and staging
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+if not DEBUG:
+    # Use WhiteNoise storage for production
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Additional locations of static files
@@ -129,8 +135,8 @@ STATICFILES_DIRS = [
     # Add more directories if needed
 ]
 
-# Directory where Django will collect static files for deployment
-STATIC_ROOT = '/home/standardcapitalonlinebank1/SCOB/staticfiles/'
+# Define STATIC_ROOT to collect static files for production and staging
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/external_st/'
 
