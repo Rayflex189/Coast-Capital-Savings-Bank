@@ -20,7 +20,7 @@ DATABASES = {
         'NAME': 'scoastdbs',
         'USER': 'scoastdbs_user',
         'PASSWORD': 'IrvMe5tCzYYv1ZJ1eecWJITEkeLmExwx',
-        'HOST': 'dpg-cugq4i9u0jms73fpdm1g-a.oregon-postgres.render.com',  # Check this
+        'HOST': 'dpg-cuqgt7tumphs73fca5q0-a.oregon-postgres.render.com',  # Check this
         'PORT': '5432',
     },
      'OPTIONS': {
