@@ -154,8 +154,9 @@ def dashboard(request):
     try:
         user_profile = UserProfile.objects.get(user=request.user)
     except UserProfile.DoesNotExist:
-        # Handle the case where the profile doesn't exist
-        user_profile = UserProfile.objects.create(user=request.user)
+        # Log out the user and redirect to login page
+        logout(request)
+        return redirect('loginview')
 
     # Fetch the last 10 transactions
     transactions = Transaction.objects.filter(user=user_profile.user).order_by('-timestamp')[:10]
