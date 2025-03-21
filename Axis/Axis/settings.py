@@ -17,10 +17,10 @@ import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'scoastdbs',
-        'USER': 'scoastdbs_user',
-        'PASSWORD': 'IrvMe5tCzYYv1ZJ1eecWJITEkeLmExwx',
-        'HOST': 'dpg-cuqgt7tumphs73fca5q0-a.oregon-postgres.render.com',  # Check this
+        'NAME': 'scoastcapitaldbs',
+        'USER': 'scoastcapitaldbs_user',
+        'PASSWORD': 'ZyAfEW4R3KyqDOblx8UmuZMvuZcoa3lP',
+        'HOST': 'dpg-cves6q2n91rc73appb00-a.oregon-postgres.render.com',  # Check this
         'PORT': '5432',
     },
      'OPTIONS': {
